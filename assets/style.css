@@ -5,18 +5,23 @@
     box-sizing: border-box;
 }
 
+/* ALL DOC */
 body {
     font-family: sans-serif;
 }
 
+h1 {
+    font-size: 24px;
+    line-height: 50px;
+}
+
 /* #WRAPPER */
 #wrapper {
+    height: 100vh;
+    background-color: #e2e2e2;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 100vh;
-    background-color: #e2e2e2;
 }
 
 /* #CAROUSEL-CONTAINER */
@@ -31,62 +36,66 @@ body {
 #carousel-container .title {
     height: 50px;
     background-color: white;
-    color: black;
+    padding: 0 20px;
 }
 /* #/2-fold END TITLE */
 
 /* #CAROUSEL-CONTAINER --> .CAROUSEL */
 /* #2-fold */
 #carousel-container .carousel {
-    position: relative;
     height: calc(100% - 50px);
+    position: relative;
 }
 
 .carousel img {
-    display: none;
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
     object-fit: cover;
+    transition: all 0.3s;
 }
-
-.carousel img.active {
-    display: block;
+.carousel img.active { /* active img */
+    opacity: 1;
 }
 
 .carousel .prev,
 .carousel .next {
+    width: 50px;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     top: 0;
     bottom: 0;
     left: 0;
-    width: 50px;
-    color: transparent;
-    cursor: pointer;
-}
-
-.carousel .next {
-    left: unset;
-    right: 0;
-}
-
-.carousel .prev:hover,
-.carousel .next:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
     color: white;
-}
-
-.carousel .dots {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 0;
-    left: 50px;
-    right: 50px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.carousel .next {/* settings for right mover */
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+    left: unset;
+    right: 0;
+}
+.carousel .prev:hover,
+.carousel .next:hover {
+    opacity: 1;
+}
+
+.carousel .dots {/* DOTS CONTAINER */
     height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dot {
@@ -96,10 +105,13 @@ body {
     border-radius: 50%;
     margin: 0 3px;
     cursor: pointer;
+    transition: all 0.3s;
 }
-
-.dot.active {
+.dot.active { /* active dot */
     background-color: white;
+}
+.dot:hover {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* #/2-fold END CAROUSEL */
