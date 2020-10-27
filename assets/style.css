@@ -1,9 +1,68 @@
+/* RESET E NORMALIZZAZIONE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-h1 {
-    color: red;
+body {
+    font-family: sans-serif;
 }
+
+/* #WRAPPER */
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-color: #e2e2e2;
+}
+
+/* #CAROUSEL-CONTAINER */
+/* <1-fold */
+#carousel-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+/* #CAROUSEL-CONTAINER --> .TITLE */
+/* #2-fold */
+#carousel-container .title {
+    height: 50px;
+    background-color: red;
+}
+/* #/2-fold END TITLE */
+
+/* #CAROUSEL-CONTAINER --> .CAROUSEL */
+/* #2-fold */
+#carousel-container .carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: calc(100% - 50px);
+    background-color: yellow;
+}
+
+.carousel .prev,
+.carousel .next {
+    width: 50px;
+    background-color: green;
+}
+
+.carousel .prev:hover,
+.carousel .next:hover {
+    /* background-color: green; */
+}
+
+.carousel .dots {
+    align-self: flex-end;
+    flex-grow: 1;
+    height: 50px;
+    background-color: blue;
+}
+
+/* #/2-fold END CAROUSEL */
+
+/* </1-fold END CAROUSEL-CONTAINER */
