@@ -1,8 +1,21 @@
 $("document").ready(function() {
 
     // CAROUSEL MOOVER
-    // NEXT IMG
-    $(".next").click(moveToR);
+
+    // // NEXT IMG VERS 1.0
+    // $(".next").click(moveToR);
+    // NEXT IMG VERS 2.0
+    $(".next").click(function() {
+        var dotsNumber = $(".dots > .dot").length;
+        var currentDot = $(".dot.active");
+        var currentIndex = currentDot.index();
+        var index = currentIndex + 1;
+        if (index == dotsNumber) {
+            index -= dotsNumber;
+        }
+
+        carouselActIndex(index);
+    });
 
     // PREV IMG
     $(".prev").click(moveToL);
@@ -74,4 +87,22 @@ function moveToClick() {
         clickedDot.addClass("active");
         imgToActivate.addClass("active");
     }
+};
+
+// move to index
+function carouselActIndex(Index) {
+    // VAR ASSIGMENT all img and dot
+    var allImg = $(".carousel > img");
+    var allDot = $(".carousel .dot");
+    // VAR ASSIGNMENT dot+index and img+index
+    var dotToActivate = $(".carousel .dot:eq("+Index+")");
+    var imgToActivate = $(".carousel > img:eq("+Index+")");
+
+    // remove active class from all img and dot
+    allImg.removeClass("active");
+    allDot.removeClass("active");
+
+    // add active class img-with-index and dot-with-index
+    dotToActivate.addClass("active");
+    imgToActivate.addClass("active");
 };
