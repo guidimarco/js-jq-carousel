@@ -10,17 +10,19 @@ $("document").ready(function() {
     // DOT MOV
     $(".dot").click(function() {
         // VAR ASSIGMENT current img and dot, clicked dot
+        var currentImg = $("img.active");
+        var currentDot = $(".dot.active");
         var clickedDot = $(this);
-
-        console.log($(".dot").length);
-        // var currentImg = $("img.active");
-        // var currentDot= $(".dot.active");
         var isActive = clickedDot.hasClass("active");
-
-        console.log(isActive);
+        var clickedIndex = clickedDot.index();
+        console.log(clickedIndex);
+        var imgToActivate = $(".carousel > img:eq("+clickedIndex+")");
 
         if (!isActive) {
-            clickedDot.siblings(".active");
+            currentImg.removeClass("active");
+            currentDot.removeClass("active");
+            clickedDot.addClass("active");
+            imgToActivate.addClass("active");
         }
 
 
