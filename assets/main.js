@@ -11,29 +11,19 @@ $("document").ready(function() {
     $(".dot").click(function() {
         // VAR ASSIGMENT current img and dot, clicked dot
         var clickedDot = $(this);
-        var currentImg = $("img.active");
-        var currentDot = $(".dot.active");
+
+        console.log($(".dot").length);
+        // var currentImg = $("img.active");
+        // var currentDot= $(".dot.active");
         var isActive = clickedDot.hasClass("active");
 
         console.log(isActive);
 
-        // WHILE clicked dot it's not active
         if (!isActive) {
-            currentImg.removeClass("active");
-            currentDot.removeClass("active");
-            if (currentImg.next("img").length) {
-                // current.next() it's not empty
-                // --> add class .active in the next img and dot
-                currentImg.next("img").addClass("active");
-                currentDot.next(".dot").addClass("active");
-            } else {
-                // current.next() it's empty
-                // --> add class .active in the first img and dot
-                $(".carousel > img:first-of-type").addClass("active");
-                $(".carousel > .dots > .dot:first-of-type").addClass("active");
-            }
-            console.log(isActive);
+            clickedDot.siblings(".active");
         }
+
+
 
     });
 });
