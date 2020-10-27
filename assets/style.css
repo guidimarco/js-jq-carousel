@@ -24,43 +24,70 @@ body {
 #carousel-container {
     width: 500px;
     height: 300px;
-    border: 1px solid black;
 }
 
 /* #CAROUSEL-CONTAINER --> .TITLE */
 /* #2-fold */
 #carousel-container .title {
     height: 50px;
-    background-color: red;
+    background-color: white;
+    color: black;
 }
 /* #/2-fold END TITLE */
 
 /* #CAROUSEL-CONTAINER --> .CAROUSEL */
 /* #2-fold */
 #carousel-container .carousel {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    position: relative;
     height: calc(100% - 50px);
-    background-color: yellow;
+}
+
+.carousel img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel img.active {
+    display: block;
 }
 
 .carousel .prev,
 .carousel .next {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
     width: 50px;
-    background-color: green;
+    color: transparent;
+}
+
+/* .carousel .prev i,
+.carousel .next i {
+    color: white;
+} */
+
+.carousel .next {
+    left: unset;
+    right: 0;
 }
 
 .carousel .prev:hover,
 .carousel .next:hover {
-    /* background-color: green; */
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
 }
 
 .carousel .dots {
-    align-self: flex-end;
-    flex-grow: 1;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    right: 50px;
     height: 50px;
-    background-color: blue;
 }
 
 /* #/2-fold END CAROUSEL */
