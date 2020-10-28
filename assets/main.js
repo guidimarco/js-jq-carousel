@@ -76,7 +76,8 @@ function moveToClick() {
     var isActive = clickedDot.hasClass("active"); // return "true" if it's already active
     var clickedIndex = clickedDot.index();
     // VAR ASSIGNMENT img associate with clicked dot
-    var imgToActivate = $(".carousel > img:eq("+clickedIndex+")");
+    // var imgToActivate = $(".carousel > img:eq("+clickedIndex+")");
+    var imgToActivate = $(".carousel > img").eq(clickedIndex);
 
     // if it's not active
     if (!isActive) {
