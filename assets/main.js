@@ -1,21 +1,35 @@
 $("document").ready(function() {
 
+    // AUTO SLIDER (EVERY 1 SEC)
+    var auto;
+    auto = setInterval(moveToR, 3000);
+
+    // STOP AUTO IF I ENTER AND RESTART IF I LEAVE
+    $(".carousel").mouseenter(function() {
+        clearInterval(auto);
+    });
+
+    $(".carousel").mouseleave(function() {
+        auto = setInterval(moveToR, 3000);
+    });
+
+
     // CAROUSEL MOOVER
 
-    // // NEXT IMG VERS 1.0
-    // $(".next").click(moveToR);
+    // NEXT IMG VERS 1.0
+    $(".next").click(moveToR);
     // NEXT IMG VERS 2.0
-    $(".next").click(function() {
-        var dotsNumber = $(".dots > .dot").length;
-        var currentDot = $(".dot.active");
-        var currentIndex = currentDot.index();
-        var index = currentIndex + 1;
-        if (index == dotsNumber) {
-            index -= dotsNumber;
-        }
-
-        carouselActIndex(index);
-    });
+    // $(".next").click(function() {
+    //     var dotsNumber = $(".dots > .dot").length;
+    //     var currentDot = $(".dot.active");
+    //     var currentIndex = currentDot.index();
+    //     var index = currentIndex + 1;
+    //     if (index == dotsNumber) {
+    //         index -= dotsNumber;
+    //     }
+    //
+    //     carouselActIndex(index);
+    // });
 
     // PREV IMG
     $(".prev").click(moveToL);
