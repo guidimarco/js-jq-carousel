@@ -1,5 +1,16 @@
 $("document").ready(function() {
 
+    // GET KEYBOARD INPUT
+    $(document).keydown(function(e) {
+        if (e.which == 39) {
+            console.log("destraaaa");
+            moveToR();
+        } else if (e.which == 37) {
+            console.log("sinistraaaa");
+            moveToL();
+        }
+    });
+
     // AUTO SLIDER (EVERY 1 SEC)
     var auto;
     auto = setInterval(moveToR, 3000);
@@ -12,7 +23,6 @@ $("document").ready(function() {
     $(".carousel").mouseleave(function() {
         auto = setInterval(moveToR, 3000);
     });
-
 
     // CAROUSEL MOOVER
 
